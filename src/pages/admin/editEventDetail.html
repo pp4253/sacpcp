@@ -210,13 +210,13 @@
       </button></ion-label>
     </ion-item>
        </ion-list>
-       <ion-list *ngIf="(showContactInformation)">
+   <ion-list *ngIf="(showContactInformation)">
       <ion-item *ngFor="let contact of eventDetail.contacts">
         <p> First Name: {{contact["user_contact"].first_name}}</p>
         <p> Last Name: {{contact["user_contact"].last_name}}</p>
         <p> email-address: {{contact["user_contact"].email}}</p>
       </ion-item>
-        </ion-list>
+  </ion-list>
 
   <!--
    <ion-list *ngIf="(showContactInformation && showEditDetails=='visible')" class="shiftMid">
