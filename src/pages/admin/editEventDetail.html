@@ -196,7 +196,7 @@
     <ion-icon *ngIf="!showContactInformation" primary item-right name="ios-add-circle-outline"></ion-icon>
     <ion-icon *ngIf="showContactInformation" primary item-right name="ios-remove-circle-outline"></ion-icon>
   </ion-item>
-  <ion-list *ngIf="(showContactInformation )" class="shiftMid">
+  <ion-list *ngIf="(showEditDetails=='visible')" class="shiftMid">
     <ion-item>
       <ion-select [(ngModel)]="selected_owner_id">
         <ion-option *ngFor="let contact of contacts" [value]="contact.id">
@@ -204,17 +204,20 @@
         </ion-option>
       </ion-select>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="(showEditDetails=='visible')">
       <ion-label stacked><button ion-button small color="primary" (click)="updateContact(selected_owner_id);">
             Add Contact
       </button></ion-label>
     </ion-item>
-    <ion-item *ngFor="let contact of eventDetail.contacts">
-      <p> First Name: {{contact["user_contact"].first_name}}</p>
-      <p> Last Name: {{contact["user_contact"].last_name}}</p>
-      <p> email-address: {{contact["user_contact"].email}}</p>
-    </ion-item>
-  </ion-list>
+       </ion-list>
+       <ion-list *ngIf="(showContactInformation)">
+      <ion-item *ngFor="let contact of eventDetail.contacts">
+        <p> First Name: {{contact["user_contact"].first_name}}</p>
+        <p> Last Name: {{contact["user_contact"].last_name}}</p>
+        <p> email-address: {{contact["user_contact"].email}}</p>
+      </ion-item>
+        </ion-list>
+
   <!--
    <ion-list *ngIf="(showContactInformation && showEditDetails=='visible')" class="shiftMid">
       <ion-item *ngFor="let contact of eventDetail.contacts">
